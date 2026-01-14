@@ -1,0 +1,47 @@
+﻿@model IEnumerable<aspnet_core_mvc_scaffold.Models.Produto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estoque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categorias)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estoque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categorias.Nome)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-primary" asp-route-id="@item.ProdutoID">Edit</a> |
+                <a asp-action="Details" class="btn btn-dark" asp-route-id="@item.ProdutoID">Details</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.ProdutoID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
